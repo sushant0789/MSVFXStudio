@@ -27,22 +27,22 @@ comments*/
 		die('We are sorry, but there appears to be a problem with the form you submitted.');		
 	}
 	
-	$first_name = $_POST['first_name']; // required
+	$name = $_POST['first_name']; // required
 	//$last_name = $_POST['last_name']; // required
-	$email_from = $_POST['email']; // required
+	$email = $_POST['email']; // required
 	$subject = $_POST['subject']; // not required
-	$comments = $_POST['comments']; // required
+	$message = $_POST['comments']; // required
 	
 	$error_message = "";
 	$email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
-  if(!preg_match($email_exp,$email_from)) {
+  if(!preg_match($email_exp,$email)) {
   	$error_message .= 'The Email Address you entered does not appear to be valid.<br />';
   }
 	$string_exp = "/^[A-Za-z .'-]+$/";
-  if(!preg_match($string_exp,$first_name)) {
+  if(!preg_match($string_exp,$name)) {
   	$error_message .= 'The First Name you entered does not appear to be valid.<br />';
   }
-  if(strlen($comments) < 2) {
+  if(strlen($message) < 2) {
   	$error_message .= 'The Comments you entered do not appear to be valid.<br />';
   }
   if(strlen($error_message) > 0) {
@@ -55,11 +55,11 @@ comments*/
 	  return str_replace($bad,"",$string);
 	}
 	
-	$email_message .= "First Name: ".clean_string($first_name)."\n";
+	$email_message .= "First Name: ".clean_string($name)."\n";
 	//$email_message .= "Last Name: ".clean_string($last_name)."\n";
-	$email_message .= "Email: ".clean_string($email_from)."\n";
+	$email_message .= "Email: ".clean_string($email)."\n";
 	$email_message .= "subject: ".clean_string($subject)."\n";
-	$email_message .= "Comments: ".clean_string($comments)."\n";
+	$email_message .= "Comments: ".clean_string($message)."\n";
 	
 	
 // create email headers
