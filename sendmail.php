@@ -1,11 +1,11 @@
 <?php
 //phpinfo();
 
-if(isset($_POST['email'])) {
+if(isset($_POST['submit'])) {
 	//$headers  = "MIME-Version: 1.0\r\n";
   	//$headers .= "Content-type: text/html; charset=utf-8\r\n";
 	// CHANGE THE TWO LINES BELOW
-	$email_to = "mahesh.gadakh@msvfxstudio.com";
+	$email_to = "sushant_khairnar@yahoo.com";
 	
 	$email_subject = "website html form submissions";
 	
