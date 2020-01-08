@@ -50,16 +50,16 @@ comments*/
   }
 	$email_message = "Form details below.\n\n";
 	
-	function clean_string($string) {
-	  $bad = array("content-type","bcc:","to:","cc:","href");
-	  return str_replace($bad,"",$string);
-	}
+	// function clean_string($string) {
+	//   $bad = array("content-type","bcc:","to:","cc:","href");
+	//   return str_replace($bad,"",$string);
+	// }
 	
-	$email_message .= "First Name: ".clean_string($name)."\n";
+	//$email_message .= "First Name: ".clean_string($name)."\n";
 	//$email_message .= "Last Name: ".clean_string($last_name)."\n";
-	$email_message .= "Email: ".clean_string($email)."\n";
-	$email_message .= "subject: ".clean_string($subject)."\n";
-	$email_message .= "Comments: ".clean_string($message)."\n";
+	// $email_message .= "Email: ".clean_string($email)."\n";
+	// $email_message .= "subject: ".clean_string($subject)."\n";
+	// $email_message .= "Comments: ".clean_string($message)."\n";
 	
 	
 // create email headers
@@ -67,9 +67,9 @@ $headers =  'MIME-Version: 1.0' . "\r\n";
 $headers .= 'From: Your name <info@msvfxstudio.com>' . "\r\n";
 $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-ini_set("SMTP","mail.msvfxstudio.com");
-   ini_set("smtp_port","25");
-   ini_set("sendmail_from","noreply@msvfxstudio.com");
+// ini_set("SMTP","mail.msvfxstudio.com");
+//    ini_set("smtp_port","25");
+//    ini_set("sendmail_from","noreply@msvfxstudio.com");
 
 mail($email_to, $email_subject, $email_message, $headers);  
 ?>
